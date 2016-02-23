@@ -1,0 +1,12 @@
+<html>
+
+<head>
+  <title>Animate</title>
+</head>
+
+<body>
+  <h1>Animate!</h1>
+  <canvas id="playground" height="500px" width="500px" style="border:1px solid">
+  </canvas>
+  <input id="clear"></input>
+</body>
