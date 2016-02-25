@@ -1,0 +1,25 @@
+
+the <svg> element is designed to store SVG code (that is, SVG XML elements)
+	<svg xmins="<link>">
+
+creating SVG elements
+
+document.createElementNS(
+	<NAMESPACE IDENTIFIER>,
+	<ELEMENT>
+);
+
+Creates an element from a specified XML namespace 
+svg example:
+
+var c1 = document.createElementNS(
+	"http://www.w3.org/2000/svg", "circle");
+
+Once created you can modify it with setAttribute calls c1.setAttribute("cx", "200");
+
+To add the elemnt to your svg container, use the appendChild function
+
+var pic = document.getElementByID("svgid");
+pic.appendChild(c1);
+
+
