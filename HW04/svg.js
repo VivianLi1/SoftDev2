@@ -40,7 +40,6 @@ var drawDot = function() {
     }else{
 	radius--;
     }
-
     
     var c = document.createElementNS(
 	"http://www.w3.org/2000/svg", "circle");
@@ -49,7 +48,15 @@ var drawDot = function() {
     c.setAttribute( "r", radius );
     c.setAttribute( "fill", "red" );
     c.setAttribute( "stroke", "black" );
+/*
+    var animateCode = function(){
+	c = document.getElementByTagName("circle");
+	radius = parseInt(c.getAttribute("r"));
+	c.setAttribute("r",radius.toString());
+    }
 
+    intervalId = window.setInterval(animateCode, 16);
+*/
     pic.appendChild( c );
 
     requestId = window.requestAnimationFrame(drawDot);
@@ -58,6 +65,8 @@ var drawDot = function() {
 
 var stop = function(){
     window.cancelAnimationFrame(requestId);
+    //Interval thing
+    //window.clearInterval(requestId);
 };
 
 /*
