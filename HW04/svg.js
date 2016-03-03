@@ -3,70 +3,56 @@ var pic = document.getElementById("vimage");
 var width = pic.width;
 var height = pic.height;
 
-var requestId;
-
-var radius = 0;
-var growing = true;
+var intervalId;
 
 var dvd = new Image();
 dvd.src = "logo_dvd.jpg";
 var dvd_h = 100;
 var dvd_w = 75;
 
-var requestId;
-
 var x = 0;
 var y = 0;
 var x_v = 2;
 var y_v = 2;
 
-/*
-var change = function(e) {
-    e.preventDefault();
-    this.setAttribute("fill", "green");
-};
-*/
-
 var drawDot = function() {
 
-    if(radius >= width/2 || radius >= height/2){
-	growing = false;
-    } else if(radius <= 0){
-	growing = true;
-    }
-
-    if(growing){
-	radius++;
-    }else{
-	radius--;
-    }
-    
     var c = document.createElementNS(
 	"http://www.w3.org/2000/svg", "circle");
-    c.setAttribute( "cx", 250);
-    c.setAttribute( "cy", 250 );
-    c.setAttribute( "r", radius );
-    c.setAttribute( "fill", "red" );
-    c.setAttribute( "stroke", "black" );
-/*
+    c.setAttribute("cx", 250);
+    c.setAttribute("cy", 250);
+    c.setAttribute("r", 0);
+    c.setAttribute("fill", "red");
+    c.setAttribute("stroke", "black");
+
+    var growing = true;
+    
     var animateCode = function(){
-	c = document.getElementByTagName("circle");
+	//c = document.getElementByTagName("circle");
 	radius = parseInt(c.getAttribute("r"));
-	c.setAttribute("r",radius.toString());
+
+	if(radius >= 250 || radius >= 250){
+	    growing = false;
+	} else if (radius <= 0){
+	    growing = true;
+	}
+
+	if(growing){
+	    radius++;
+	}else{
+	    radius--;
+	}
+	
+	c.setAttribute("r",radius);
+	pic.appendChild(c);
     }
 
     intervalId = window.setInterval(animateCode, 16);
-*/
-    pic.appendChild( c );
-
-    requestId = window.requestAnimationFrame(drawDot);
-
+ 
 };
 
 var stop = function(){
-    window.cancelAnimationFrame(requestId);
-    //Interval thing
-    //window.clearInterval(requestId);
+    window.clearInterval(intervalId);
 };
 
 /*
