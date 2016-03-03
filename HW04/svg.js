@@ -55,16 +55,6 @@ var stop = function(){
     window.clearInterval(intervalId);
 };
 
-/*
-var clicked = function(e){
-    if(e.toElement == this){
-	drawDot(e.offsetX, e.offsetY);
-    }
-};
-
-pic.addEventListener("click", clicked);
-*/
-
 var bounce = function(){
 
     x = x + x_v;
