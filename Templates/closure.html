@@ -1,0 +1,19 @@
+Closures
+
+1. func declared in another func
+2. inner func accesses a vairbale from the outer func (outside scope of inner func)
+3. ext func binds a value to the variable and finishes (closes) before the inner func can be completed
+
+def repeat(s):
+  def times(x):
+    return s * x
+  return times
+
+this is nested, but not a closure bc s, the ext variable to times, is not bound to any to any value
+
+r1 = repeat("Hello")
+
+this creates a closure bc repeat runs binds s to "Hello"
+and then exits, returning a func (times) with s bound to "Hello"
+
+r1(2)

@@ -17,8 +17,14 @@ LC_LETTERS="abcdefghijklmnopqrstuvwxyz"
 NUMS="1234567890"
 
 def passwordMin(pw):
-    test1 = [0 if x in UC_LETTERS else x for x in pw]
-    test2 = [1 if x in LC_LETTERS else x for x in test1]
-    return test2
- 
-print passwordMin("HEllo")
+    test = [1 if x in UC_LETTERS else 2 if x in LC_LETTERS else 3 if x in NUMS else 0 for x in pw]
+    return 1 in test and 2 in test and 3 in test
+
+p = 'password'
+p2 = 'passw0rd'
+p3 = 'Passw0rd'
+
+print p3 + ': ' + str(passwordMin(p3))
+
+def passwordStrength(pw):
+    
