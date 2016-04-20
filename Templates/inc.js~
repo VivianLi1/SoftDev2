@@ -1,0 +1,6 @@
+var makeIncrementor(){
+    var i = 0;
+    var inc = func(){ i = i + 1; return i}
+    return inc
+}
+
